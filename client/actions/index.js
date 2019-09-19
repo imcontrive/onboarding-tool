@@ -1,31 +1,34 @@
-import axios from 'axios';
+import axios from "axios";
 
-const rootUrl = 'http://localhost:3000/api/v1';
+const rootUrl = "http://localhost:3000/api/v1";
 
-const setTokenToAxios = (token) => {
-  const newToken = localStorage.getItem('authToken') || '';
-  axios.defaults.headers.Authorization = newToken;
-}
+// const setTokenToAxios = token => {
+//   const newToken = localStorage.getItem("authToken") || "";
+//   axios.defaults.headers.Authorization = newToken;
+// };
 
 export const getCurrentUser = () => {
-  return (dispatch => {
-    axios.get(`${rootUrl}/users/me`)
-    .then(res => {
-      dispatch({
-        type: 'USER_LOGIN_SUCCESS',
-        data: res.data
+  console.log("getcurrentuser");
+  return dispatch => {
+    axios
+      .get(`${rootUrl}/users/me`)
+      .then(res => {
+        console.log(res, "user in get current");
+        dispatch({
+          type: "USER_LOGIN_SUCCESS",
+          data: res.data
+        });
       })
-    })
-    .catch(err => {
-      dispatch({type: 'USER_LOGIN_FAILED'})
-    })
-  })
-}
+      .catch(err => {
+        dispatch({ type: "USER_LOGIN_FAILED" });
+      });
+  };
+};
 
 export const noToken = () => {
-  return(dispatch => {
+  return dispatch => {
     dispatch({
-      type: 'NO_TOKEN'
-    })
-  })
-}
+      type: "NO_TOKEN"
+    });
+  };
+};

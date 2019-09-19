@@ -1,9 +1,522 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
 body {
-  margin: 10x;
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
 }
 
-h1 {
+// Main styles
+
+body {
+  background: snow;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+}
+
+// styles for homepage
+.homePage-wrapper {
+  min-height: 86vh;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-family: "Roboto";
+
+  h1 {
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+}
+
+// Styles for signUp
+.isWrapper {
+  width: 701px;
+  height: auto;
+  padding: 4rem;
+  margin: 20px auto;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 0 15px 0 grey;
+  border-radius: 1rem;
+  h3 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    word-spacing: 10px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 400px;
+  }
+  .danger {
+    color: red;
+    text-align: center;
+  }
+
+  .isForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .formHeading {
+      font-size: 40px;
+      line-height: 46px;
+      font-weight: 400;
+      margin: 25px 0;
+    }
+
+    label {
+      font-size: 14px;
+      line-height: 16px;
+      color: rgba(0, 0, 0, 0.5);
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .select,
+    input {
+      display: flex;
+      width: 100%;
+      height: 37px;
+      border: 1px solid #eeeeee;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      padding-left: 7px;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .select {
+      cursor: pointer;
+    }
+  }
+
+  .submit-signup {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 15px;
+
+    p {
+      color: red;
+    }
+
+    .btn {
+      width: 80px;
+      border-radius: 20px;
+      padding: 6px 2px;
+      border: none;
+      outline: none;
+      background: #000;
+      font-style: normal;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    a {
+      margin: 20px 0 !important;
+      color: black;
+      font-size: 10px;
+      text-decoration: none;
+
+      small {
+        font-size: 14px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+// Styles for LogIn
+
+.isLoginWrapper {
+  height: 451px;
+}
+
+// Generate Reports
+
+.report-container {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  grid-gap: 2px;
+
+  .user-selection {
+    background-color: #c4c4c4;
+    padding: 20px;
+
+    select {
+      background: none;
+      outline: none;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  .input-panel {
+    display: grid;
+    grid-gap: 20px;
+    padding: 10px;
+    grid-template-columns: repeat(4, 260px);
+    place-items: center;
+    background-color: #c4c4c4;
+
+    select {
+      width: 100%;
+      height: 30px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      padding-left: 7px;
+      letter-spacing: 1px;
+      background-color: #c4c4c4;
+      border: 1px solid rgb(133, 133, 133);
+      color: rgba(56, 56, 56, 0.5);
+      cursor: pointer;
+    }
+
+    button {
+      width: 50%;
+      height: 34px;
+      padding: 4px 2px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background: #000;
+      font-style: normal;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+}
+.reports-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  min-height: 535px;
+  background: whitesmoke;
+}
+
+// Styles for Header
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 4rem;
+  color: #c34f00;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+a {
+  color: #000;
+}
+ul {
+  display: inline;
+}
+.header-list {
+  display: flex;
+  justify-content: flex-start !important;
+}
+.header-list ul {
+  display: flex;
+}
+.header-list li {
+  list-style: none;
+  display: inline-block;
+  padding: 1rem 0.75rem;
+}
+.header-main {
+  display: contents;
+}
+.header-main > div {
+  padding: 0rem 1rem;
+}
+.logo {
+  width: 55px;
+  height: 55px;
+}
+
+/* control-btns */
+.control-btns {
+  display: flex;
+  justify-content: end;
+}
+.btn {
+  width: 85px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid rgba(208, 215, 218, 0.48);
+  font-size: 22px;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-right: 16px;
   text-align: center;
-  color: gray;
-  margin-top: 50px;
+}
+.btn:hover {
+  border: 2px solid #fa6500;
+  transition: all 0.1s ease-in-out;
+}
+li a {
+  color: black;
+}
+li .active {
+  color: #fa6500;
+  padding-bottom: 0.35rem;
+  border-bottom: 0.25rem solid #fa6500;
+}
+.logout-btn {
+  display: block;
+  padding-top: 0;
+}
+
+hr {
+  border: 1px solid rgba(208, 215, 218, 0.48) !important;
+  margin: 0rem 0rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+// styles for user panel
+
+.isUserPanel {
+  .isUserData {
+    display: flex;
+  }
+  .avatar {
+    display: grid;
+    place-items: center;
+    background: #000;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .isLoggedUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 20px;
+  }
+  .logout-btn {
+    text-align: center;
+  }
+  .logout-btn:hover {
+    color: #fa6500;
+    transition: all 0.1s ease-in-out;
+  }
+}
+.form-label {
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+  }
+
+  input {
+    outline: 0;
+    padding: 0.5rem 1rem;
+    border: 0.05rem solid black;
+    border-radius: 2rem;
+  }
+}
+
+.submit-btn {
+  background: transparent;
+  border: 0.05rem solid black;
+  line-height: 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  transition: color, background-color ease-in 0.2s;
+}
+.submit-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.button-wrapper {
+  position: relative;
+  width: 150px;
+  text-align: center;
+  margin: 5rem auto;
+}
+
+.button-wrapper span.label {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  background: #001;
+  cursor: pointer;
+  color: #fff;
+  padding: 0.75rem 0.5rem;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+#upload {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
 }
