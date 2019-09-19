@@ -7,6 +7,7 @@ const initialState = {
 
 function currentUser(state = initialState, action) {
   switch (action.type) {
+    case "USER_RELOAD":
     case "REGISTER_USER":
       return {
         ...state,

@@ -34,11 +34,11 @@ class Header extends Component {
                   </li>
                   {user && user.isAdmin == true ? (
                     <div className="routesForAdmin">
-                      <li className="list-items">
+                      {/* <li className="list-items">
                         <NavLink to="/update-userInfo" activeClassName="active">
                           Update
                         </NavLink>
-                      </li>
+                      </li> */}
                     </div>
                   ) : (
                     ""

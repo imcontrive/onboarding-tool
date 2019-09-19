@@ -520,3 +520,129 @@ hr {
   opacity: 0;
   cursor: pointer;
 }
+
+// styles for Error.js
+
+.is-light {
+  width: 500px;
+  margin: 5rem auto;
+  .has-text {
+    color: red;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.025rem;
+    text-align: center;
+    margin: 1.25rem 2rem;
+  }
+  .subtitle {
+    margin: 2rem;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+    color: #0b9cc0;
+  }
+}
+
+// Styles For DashBoard
+
+.isTableWrapper {
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  .table-head {
+    color: #002e43;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .edit {
+    color: #30ba67;
+    cursor: pointer;
+  }
+  .edit:hover {
+    color: #fc4445;
+    transition: all 0.15s ease-in-out;
+  }
+  td,
+  th {
+    border: 1px solid rgb(161, 161, 248);
+    text-align: center;
+    padding: 8px 1px;
+  }
+
+  tbody tr:nth-child(even) {
+    color: #012e41;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #fefefe;
+    color: #002e41;
+  }
+}
+
+// Custom for diagram
+/* DropDown */
+
+.big {
+  font-size: 1.2em;
+}
+
+.custom-dropdown {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-dropdown select {
+  background-color: white;
+  color: black;
+  font-size: inherit;
+  padding: 0.35rem 7rem;
+  outline: none;
+  cursor: pointer;
+  border: 0.05rem solid black;
+  border-radius: 2rem;
+}
+.custom-dropdown select::-ms-expand {
+  display: none;
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  content: "\25BC";
+  height: 0.65rem;
+  font-size: 1rem;
+  line-height: 1;
+  right: 0.85rem;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.custom-dropdown::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+  border: 0.5px solid black;
+  background-color: #e6e6e6;
+}
+
+.custom-dropdown::after {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+}

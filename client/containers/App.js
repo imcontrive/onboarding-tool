@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
 import "../scss/index.scss";
-import HomePage from "../components/HomePage";
-import Login from "../components/Login";
-import Register from "../components/Register";
 import Header from "../components/Header";
-import DashBoard from "../components/DashBoard";
-import UpdateUserInfo from "../components/UpdateUserInfo";
 import setAuthToken from "../../utils/setAuthToken";
-import DataEntry from "../components/DataEntry";
-import UploadFile from "../components/UploadFile";
+import Protected from "../components/Protected";
+import Public from "../components/Public";
+
 const axios = require("axios");
 
 class App extends Component {
@@ -26,7 +21,7 @@ class App extends Component {
         .get("http://localhost:3000/api/v1/users/me")
         .then(res => {
           if (res.data.success) {
-            this.props.dispatch({ type: "REGISTER_USER", payload: res.data });
+            this.props.dispatch({ type: "USER_RELOAD", payload: res.data });
           }
         })
         .catch(function(error) {
@@ -36,17 +31,12 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div>
         <Header />
         <hr />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/data-entry" component={DataEntry} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/dashBoard" component={DashBoard} />
-        <Route path="/update-userinfo" component={UpdateUserInfo} />
-        <Route path="/upload-file" component={UploadFile} />
+        {user ? <Protected /> : <Public />}
       </div>
     );
   }
@@ -54,7 +44,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    state
+    user: state.userInfo.user
   };
 };
 

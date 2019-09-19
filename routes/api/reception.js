@@ -16,7 +16,7 @@ router.get("/", auth.verifyToken, (req, res) => {
 router.post("/", auth.verifyToken, (req, res) => {
   Reception.create(req.body, (err, reception) => {
     if (err) return res.json(err);
-    res.status(201).json({ reception: reception });
+    res.status(201).json({ success: true, reception: reception });
   });
 });
 
@@ -33,13 +33,14 @@ router.put("/:id", auth.verifyToken, (req, res) => {
   });
 });
 
-// delete Reception
-// router.delete("/:id", (req, res) => {
-//   var id = req.params.id;
-//   Reception.findByIdAndRemove(id, req.body, (err, reception) => {
-//     if (err) return res.json({ success: false, message: "server error" });
-//     res.status(201).json({ success: true, reception });
-//   });
-// });
+// fetch single Reception
+router.get("/:id", auth.verifyToken, (req, res) => {
+  var id = req.params.id;
+  console.log(id, "backend");
+  Reception.findById(id, (err, reception) => {
+    if (err) return res.status(401).json(err);
+    res.status(201).json({ success: true, reception });
+  });
+});
 
 module.exports = router;

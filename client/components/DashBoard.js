@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class DashBoard extends Component {
   state = {
@@ -25,22 +26,52 @@ class DashBoard extends Component {
 
   render() {
     const { allData } = this.props;
-    // console.log(allData, "allData in ....");
     return (
-      <div className="isWrapper">
-        <h3>DashBoard</h3>
-        {allData
-          ? allData.map((data, i) => {
-              <p>{data.name}</p>;
-            })
-          : ""}
-      </div>
+      <table className="isTableWrapper">
+        <thead>
+          <tr>
+            <th className="table-head">Name</th>
+            <th className="table-head">Company Name</th>
+            <th className="table-head">Phone</th>
+            <th className="table-head">Email</th>
+            <th className="table-head">Status</th>
+            <th className="table-head">Edit Button</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allData ? (
+            allData.map((data, index) => (
+              <tr key={index}>
+                <th className="table-data">{data.name}</th>
+                <th className="table-data">{data.cname}</th>
+                <th className="table-data">{data.phone}</th>
+                <th className="table-data">{data.email}</th>
+                <th className="table-data">{data.status}</th>
+                <th className="table-data">
+                  <Link
+                    className="edit"
+                    to={{
+                      pathname: "/update-userinfo/" + data._id,
+                      id: data._id
+                    }}
+                  >
+                    Edit
+                  </Link>
+                </th>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <th>Loading.....</th>
+            </tr>
+          )}
+        </tbody>
+      </table>
     );
   }
 }
 
 const mapStateToProps = state => {
-  // console.log(state.userInfo.allData, "dashboard map state");
   return {
     allData: state.userInfo.allData
   };
